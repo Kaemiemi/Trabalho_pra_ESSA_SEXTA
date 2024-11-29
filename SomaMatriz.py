@@ -1,8 +1,16 @@
-def soma_matrizes(matriz1, matriz2):
-    # Verifica se as dimensões das matrizes são compatíveis
-    if len(matriz1) != len(matriz2) or len(matriz1[0]) != len(matriz2[0]):
-        raise ValueError("As matrizes devem ter as mesmas dimensões.")
+size = 100
+
+def gerar_matriz(size):
+    # Inicializa uma matriz vazia
+    matriz = [[0 for _ in range(size)] for _ in range(size)]
     
+    # Preenche a matriz com valores
+    for i in range(size):
+        for j in range(size):
+            matriz[i][j] = i+j  # valor da fileira + valor da coluna
+    return matriz
+
+def soma_matrizes(matriz1, matriz2):  
     # Cria uma matriz de mesmo tamanho para armazenar o resultado
     resultado = [[0 for _ in range(len(matriz1[0]))] for _ in range(len(matriz1))]
     
@@ -13,21 +21,20 @@ def soma_matrizes(matriz1, matriz2):
     
     return resultado
 
-# Exemplo de uso
-matriz1 = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
+# Gera duas matrizes de tamanho definido em size
+matriz1 = gerar_matriz(size)
+matriz2 = gerar_matriz(size)
 
-matriz2 = [
-    [9, 8, 7],
-    [6, 5, 4],
-    [3, 2, 1]
-]
-
+# Soma as matrizes
 resultado = soma_matrizes(matriz1, matriz2)
 
-# Imprime a matriz resultante
+print("Matriz matriz1:")
+for linha in matriz1:
+    print(linha)
+
+print("###############################################################") #uma divisória
+
+# Imprime a matriz resultado
+print("Matriz resultado:")
 for linha in resultado:
     print(linha)

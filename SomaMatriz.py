@@ -1,3 +1,5 @@
+import time
+
 size = 100
 
 def gerar_matriz(size):
@@ -21,20 +23,25 @@ def soma_matrizes(matriz1, matriz2):
     
     return resultado
 
+inicio = time.time()
 # Gera duas matrizes de tamanho definido em size
 matriz1 = gerar_matriz(size)
 matriz2 = gerar_matriz(size)
 
 # Soma as matrizes
 resultado = soma_matrizes(matriz1, matriz2)
+fim = time.time()
+
 
 print("Matriz matriz1:")
 for linha in matriz1:
     print(linha)
 
-print("###############################################################") #uma divisória
-
 # Imprime a matriz resultado
 print("Matriz resultado:")
 for linha in resultado:
     print(linha)
+
+print("TEMPO DE EXECUÇÃO:")
+print(fim - inicio)
+print("(não contabiliza o tempo de imprimir os valores)")

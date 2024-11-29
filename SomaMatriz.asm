@@ -1,8 +1,8 @@
 .data
-    size: .word 2                # Tamanho da matriz (número de linhas/colunas)
-    matriz1: .space 16           # Espaço para matriz 1 sizexsize e 4 bytes cada
-    matriz2: .space 16           # Espaço para matriz 2 
-    resultado: .space 16         # Espaço para matriz de resultado 
+    size: .word 100                # Tamanho da matriz (número de linhas/colunas)
+    matriz1: .space 40000           # Espaço para matriz 1 sizexsize e 4 bytes cada
+    matriz2: .space 40000           # Espaço para matriz 2 
+    resultado: .space 40000         # Espaço para matriz de resultado 
 
     space: .asciiz " "
     newline: .asciiz "\n"        # Nova linha para a saída

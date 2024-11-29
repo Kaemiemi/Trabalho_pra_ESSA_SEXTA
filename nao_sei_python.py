@@ -1,4 +1,4 @@
-size = 5
+size = 10
 
 def gerar_matriz(size):
     # Inicializa uma matriz vazia
@@ -7,7 +7,7 @@ def gerar_matriz(size):
     # Preenche a matriz com valores
     for i in range(size):
         for j in range(size):
-            matriz[i][j] = i  # Aqui você pode escolher qualquer valor
+            matriz[i][j] = i+j  # valor da fileira + valor da coluna
     return matriz
 
 def soma_matrizes(matriz1, matriz2):  
@@ -28,7 +28,13 @@ matriz2 = gerar_matriz(size)
 # Soma as matrizes
 resultado = soma_matrizes(matriz1, matriz2)
 
-# Imprime as primeiras 5 linhas do resultado para verificação
-print("Primeiras 5 linhas do resultado:")
+print("Matriz matriz1:")
+for linha in matriz1:
+    print(linha)
+
+print("###############################################################") #uma divisória
+
+# Imprime a matriz resultado
+print("Matriz resultado:")
 for linha in resultado:
     print(linha)

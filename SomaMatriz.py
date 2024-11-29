@@ -1,6 +1,6 @@
 import time
 
-size = 100
+size = 1000
 
 def gerar_matriz(size):
     # Inicializa uma matriz vazia

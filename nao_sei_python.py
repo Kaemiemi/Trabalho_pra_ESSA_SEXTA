@@ -1,9 +1,13 @@
-size = 5000
+size = 5
 
-def gerar_matriz():
-    for i in size:
-        for j in size:
-            matriz[i],[j] = i
+def gerar_matriz(size):
+    # Inicializa uma matriz vazia
+    matriz = [[0 for _ in range(size)] for _ in range(size)]
+    
+    # Preenche a matriz com valores
+    for i in range(size):
+        for j in range(size):
+            matriz[i][j] = i  # Aqui você pode escolher qualquer valor
     return matriz
 
 def soma_matrizes(matriz1, matriz2):  
@@ -17,12 +21,14 @@ def soma_matrizes(matriz1, matriz2):
     
     return resultado
 
-matriz1 = gerar_matriz()
+# Gera duas matrizes de tamanho 5000x5000
+matriz1 = gerar_matriz(size)
+matriz2 = gerar_matriz(size)
 
-matriz2 = gerar_matriz()
-
+# Soma as matrizes
 resultado = soma_matrizes(matriz1, matriz2)
 
-# Imprime a matriz resultante
+# Imprime as primeiras 5 linhas do resultado para verificação
+print("Primeiras 5 linhas do resultado:")
 for linha in resultado:
     print(linha)

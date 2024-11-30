@@ -35,8 +35,8 @@ main:
     li $v0, 30
     syscall
     
-    move $s3, $a0
-    move $s4, $a1
+    move $s6, $a0
+    move $s7, $a1
 
     la $t0, size
     lw $t0, 0($t0)

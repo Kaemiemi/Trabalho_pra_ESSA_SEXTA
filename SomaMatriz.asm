@@ -1,8 +1,8 @@
 .data
-    size: .word 2                # Tamanho da matriz (número de linhas/colunas)
-    matriz1: .space 16           # Espaço para matriz 1 sizexsize e 4 bytes cada
-    matriz2: .space 16           # Espaço para matriz 2 
-    resultado: .space 16         # Espaço para matriz de resultado 
+    size: .word 100                # Tamanho da matriz (número de linhas/colunas)
+    matriz1: .space 40000           # Espaço para matriz 1 sizexsize e 4 bytes cada
+    matriz2: .space 40000           # Espaço para matriz 2 
+    resultado: .space 40000         # Espaço para matriz de resultado 
 
     space: .asciiz " "
     newline: .asciiz "\n"        # Nova linha para a saída
@@ -14,10 +14,7 @@
 .globl main
 
 main:
-    li $v0, 30
-    syscall
-    
-    # Carregar o tamanho da matriz
+ # Carregar o tamanho da matriz
     la $t0, size
     lw $t0, 0($t0)           # $t0 = tamanho da matriz (n = 3)
 
@@ -35,13 +32,15 @@ main:
     la $s0, resultado        # Ponteiro para matriz de resultado
     jal soma_matrizes        # Realiza a soma
     
-    li $a0, 0x00000159
-    li $a1, 0x857633FE
+    li $v0, 30
+    syscall
     
-    
-    move $s4, $a0
-    move $s5, $a1
-    
+    move $s6, $a0
+    move $s7, $a1
+
+    la $t0, size
+    lw $t0, 0($t0)
+
     la $a0, imprimir_matriz1     
     li $v0, 4
     syscall
@@ -58,17 +57,6 @@ main:
     la $a3, resultado        # Ponteiro para a matriz resultado
     jal imprimir_matriz      # Imprime a matriz resultado
     
-    la $a0, imprimir_tempo
-    li $v0, 4
-    syscall
-    
-    move $a0, $s4
-    li $v0, 1
-    syscall
-    
-    move $a0, $s5
-    li $v0, 1
-    syscall
     
     # Encerrar o programa
     li $v0, 10
@@ -141,3 +129,4 @@ proxima_linha_imprime:
     j imprime_linhas
 fim_imprime:
     jr $ra
+    
